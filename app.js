@@ -14,8 +14,7 @@ const URL = "https://lsbc.vic.gov.au/register-of-lawyers?query=&type=lawyer&lawy
     let resultRank = 1;
 
 // Optional Limit
-let resultLimit = 26000
-
+let resultLimit = 50000
 
 
 // Contact object
@@ -29,15 +28,14 @@ const contact = {
     specialisation: ""
 }
 
-const contactKeys = Object.keys(contact).join(',')
 
 //  Write headers
+const contactKeys = Object.keys(contact).join(',')
 writeStream.write(contactKeys+'\n')
 
 
 
 function recursion(url){
-
 
     request(url, (error, response, html) => {
         if(!error && response.statusCode == 200){
@@ -46,6 +44,7 @@ function recursion(url){
 
             const searchResults = $('.search-content-wrapper')
 
+                // Recursion condition
                 if (searchResults && resultRank < resultLimit){
 
                     // Populate each contact object
@@ -125,5 +124,5 @@ function recursion(url){
     })
 }
 
-// Let's kick things off
+// Starts the scrape
 recursion(URL+resultRank)
