@@ -17,12 +17,12 @@ This app uses recursion so it is important that a 'recursion condition' exists, 
 
 # Understanding the code
 
-This app is a web scraper; It automatically:
+This app is a web scraper; It will automatically:
 
-- visits a website;
-- targets specifed elements on the page;
-- writes the results to a file; and
-- repeats untill all items are found (or set limit is reached)
+- visit a website;
+- target specifed elements on the page;
+- write the results to a file; and
+- repeat until all items are found (or set limit is reached)
 
 This app uses `request` and recursion to iterate through the result pages parsing the dom with `cheerio`.
 It's not very efficient though it does the job.
@@ -30,4 +30,4 @@ It's not very efficient though it does the job.
 ## Search fails
 
 The app writes on each result to retain results on error.
-You can adjust the initial `resultRank` to pick backup from where it ended, though make sure to move or rename the written file to prevent it being overwritten
+You can adjust the initial `resultRank` to pick back up from where it ended, though make sure to move or rename the written file to prevent it being overwritten
