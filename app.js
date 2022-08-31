@@ -2,11 +2,13 @@
 const request = require('request')
 const cheerio = require('cheerio')
 const fs      = require('fs')
-const moment  = require('moment')
 
-// File path
-const date        = moment().format('YYYY-MM-DD')
-const writeStream = fs.createWriteStream(`exports/${date}_lsbc-lawyers.csv`)
+// File path 
+// Date: YYYY-MM-DD
+const currentDate = new Date().toJSON().slice(0, 10);
+
+const writeStream = fs.createWriteStream(`exports/${currentDate}_lsbc-lawyers.csv`)
+
 
 
 // Target URL
